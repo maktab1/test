@@ -2,9 +2,9 @@ const cardsContainer = document.getElementById('cardsContainer');
 
 // Add your image filenames here
 const imageFilenames = [
-    'image1.jpg',
-    'image2.jpg',
-    'image3.jpg',
+    '1.png',
+    '2.png',
+    '3.png',
     // Add more images as needed
 ];
 
