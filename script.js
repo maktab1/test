@@ -4,18 +4,11 @@ const nextButton = document.getElementById('nextButton');
 
 // Add your image filenames here
 const imageFilenames = [
-    '1.png',
-    '2.png',
-    '3.png',
-    '4.png',
-    '5.png',
-    '6.png',
-    '7.png',
-    '4.jpeg',
-    '2.jpeg',
-    '3.jpeg',
-    '4.jpeg',
-    'Maktab Icon.jpg',
+    'image1.jpg',
+    'image2.jpg',
+    'image3.jpg',
+    'image4.jpg',
+    'image5.jpg',
     // Add more images as needed
 ];
 
@@ -44,14 +37,14 @@ document.querySelectorAll('.card').forEach((card) => {
     card.style.width = cardWidth;
 });
 
+// Ensure the cardsContainer has enough width to accommodate all cards
+cardsContainer.style.width = (imageFilenames.length * 100) + '%';
+
 let currentIndex = 0;
 
 // Function to move the cards container
 function moveCards(direction) {
-    currentIndex = (currentIndex + direction) % imageFilenames.length;
-    if (currentIndex < 0) {
-        currentIndex = imageFilenames.length - 1;
-    }
+    currentIndex = (currentIndex + direction + imageFilenames.length) % imageFilenames.length;
     const newTranslateX = -currentIndex * 100;
     cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
 }
