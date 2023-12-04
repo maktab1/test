@@ -47,28 +47,21 @@ document.querySelectorAll('.card').forEach((card) => {
 let currentIndex = 0;
 
 // Function to move the cards container
-function moveCards(index) {
-    currentIndex = index;
+function moveCards() {
+    currentIndex = (currentIndex + 0.1) % imageFilenames.length;
     const newTranslateX = -currentIndex * 100;
     cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
+    requestAnimationFrame(moveCards);
 }
 
-// Function to handle automatic infinite loop
-function autoScroll() {
-    currentIndex = (currentIndex + 1) % imageFilenames.length;
-    moveCards(currentIndex);
-}
-
-// Set up automatic infinite loop
-setInterval(autoScroll, 5000); // Change the interval as needed (in milliseconds)
+// Call the moveCards function to initiate the animation
+moveCards();
 
 // Event listeners for manual navigation buttons
 prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + imageFilenames.length) % imageFilenames.length;
-    moveCards(currentIndex);
 });
 
 nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % imageFilenames.length;
-    moveCards(currentIndex);
 });
