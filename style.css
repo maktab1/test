@@ -69,3 +69,12 @@ p {
 #nextButton {
     right: 10px;
 }
+@keyframes scrollAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-${imageFilenames.length * 100}%));
+    }
+}
+
