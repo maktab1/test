@@ -5,6 +5,12 @@ const imageFilenames = [
     '1.png',
     '2.png',
     '3.png',
+    '4.png',
+    '4.jpeg',
+    '2.jpeg',
+    '3.jpeg',
+    '4.jpeg',
+    'Maktab Icon.jpg',
     // Add more images as needed
 ];
 
