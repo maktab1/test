@@ -48,10 +48,12 @@ let currentIndex = 0;
 
 // Function to move the cards container
 function moveCards() {
-    currentIndex = (currentIndex + 0.01) % imageFilenames.length;
+    currentIndex = (currentIndex + 1) % imageFilenames.length;
     const newTranslateX = -currentIndex * 100;
     cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
-    requestAnimationFrame(moveCards);
+
+    // Use setTimeout for a controlled animation speed
+    setTimeout(moveCards, 3000); // Adjust the delay as needed (in milliseconds)
 }
 
 // Call the moveCards function to initiate the animation
@@ -60,8 +62,12 @@ moveCards();
 // Event listeners for manual navigation buttons
 prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + imageFilenames.length) % imageFilenames.length;
+    const newTranslateX = -currentIndex * 100;
+    cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
 });
 
 nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % imageFilenames.length;
+    const newTranslateX = -currentIndex * 100;
+    cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
 });
