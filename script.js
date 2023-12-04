@@ -2,11 +2,15 @@ const cardsContainer = document.getElementById('cardsContainer');
 
 // Add your image filenames here
 const imageFilenames = [
-    'image1.jpg',
-    'image2.jpg',
-    'image3.jpg',
-    'image4.jpg',
-    'image5.jpg',
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+    '4.jpeg',
+    '2.jpeg',
+    '3.jpeg',
+    '4.jpeg',
+    'Maktab Icon.jpg',
     // Add more images as needed
 ];
 
