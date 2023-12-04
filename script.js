@@ -2,18 +2,11 @@ const cardsContainer = document.getElementById('cardsContainer');
 
 // Add your image filenames here
 const imageFilenames = [
-    '1.png',
-    '2.png',
-    '3.png',
-    '4.png',
-    '5.png',
-    '6.png',
-    '7.png',
-    '4.jpeg',
-    '2.jpeg',
-    '3.jpeg',
-    '4.jpeg',
-    'Maktab Icon.jpg',
+    'image1.jpg',
+    'image2.jpg',
+    'image3.jpg',
+    'image4.jpg',
+    'image5.jpg',
     // Add more images as needed
 ];
 
@@ -55,10 +48,10 @@ function handleSwipe() {
     const deltaX = touchEndX - touchStartX;
 
     if (deltaX > swipeThreshold) {
-        // Swipe left (move to next set of cards)
+        // Swipe right (move to previous set of cards)
         moveCards(-1);
     } else if (deltaX < -swipeThreshold) {
-        // Swipe right (move to previous set of cards)
+        // Swipe left (move to next set of cards)
         moveCards(1);
     }
 }
@@ -71,5 +64,22 @@ function moveCards(direction) {
         ? parseInt(currentTransform.split(',')[4].trim())
         : 0;
 
-    cardsContainer.style.transform = `translateX(${currentTranslateX + direction * cardWidth}px)`;
+    const newTranslateX = currentTranslateX + direction * cardWidth;
+
+    // Check if it's the first or last set of cards to create the loop effect
+    if (direction === 1 && newTranslateX <= -cardWidth * imageFilenames.length) {
+        cardsContainer.style.transition = 'none';
+        cardsContainer.style.transform = 'translateX(0)';
+        setTimeout(() => {
+            cardsContainer.style.transition = 'transform 0.5s ease';
+        }, 0);
+    } else if (direction === -1 && newTranslateX >= 0) {
+        cardsContainer.style.transition = 'none';
+        cardsContainer.style.transform = `translateX(${-cardWidth * (imageFilenames.length - 1)}px)`;
+        setTimeout(() => {
+            cardsContainer.style.transition = 'transform 0.5s ease';
+        }, 0);
+    } else {
+        cardsContainer.style.transform = `translateX(${newTranslateX}px)`;
+    }
 }
