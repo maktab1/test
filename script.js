@@ -48,7 +48,7 @@ let currentIndex = 0;
 
 // Function to move the cards container
 function moveCards() {
-    currentIndex = (currentIndex + 0.10) % imageFilenames.length;
+    currentIndex = (currentIndex + 0.01) % imageFilenames.length;
     const newTranslateX = -currentIndex * 100;
     cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
     requestAnimationFrame(moveCards);
