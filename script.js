@@ -1,14 +1,19 @@
 const cardsContainer = document.getElementById('cardsContainer');
-const prevButton = document.getElementById('prevButton');
-const nextButton = document.getElementById('nextButton');
 
 // Add your image filenames here
 const imageFilenames = [
-    'image1.jpg',
-    'image2.jpg',
-    'image3.jpg',
-    'image4.jpg',
-    'image5.jpg',
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+    '5.png',
+    '6.png',
+    '7.png',
+    '4.jpeg',
+    '2.jpeg',
+    '3.jpeg',
+    '4.jpeg',
+    'Maktab Icon.jpg',
     // Add more images as needed
 ];
 
@@ -37,21 +42,24 @@ document.querySelectorAll('.card').forEach((card) => {
     card.style.width = cardWidth;
 });
 
-// Ensure the cardsContainer has enough width to accommodate all cards
-cardsContainer.style.width = (imageFilenames.length * 100) + '%';
+// Set the animation duration based on the number of cards and desired scroll speed
+const animationDuration = imageFilenames.length * 5 + 's'; // Adjust as needed
 
-let currentIndex = 0;
-
-// Function to move the cards container
-function moveCards(direction) {
-    currentIndex = (currentIndex + direction + imageFilenames.length) % imageFilenames.length;
-    const newTranslateX = -currentIndex * 100;
-    cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
-}
-
-// Call the moveCards function to initiate the animation
-setInterval(() => moveCards(1), 5000); // Auto-scroll every 5 seconds
+// Apply the animation style to the cards container
+cardsContainer.style.animation = `scrollAnimation ${animationDuration} linear infinite`;
 
 // Event listeners for manual navigation buttons
-prevButton.addEventListener('click', () => moveCards(-1));
-nextButton.addEventListener('click', () => moveCards(1));
+// These buttons will interrupt the auto-scrolling animation
+document.getElementById('prevButton').addEventListener('click', () => {
+    cardsContainer.style.animation = 'none';
+    setTimeout(() => {
+        cardsContainer.style.animation = `scrollAnimation ${animationDuration} linear infinite`;
+    }, 0);
+});
+
+document.getElementById('nextButton').addEventListener('click', () => {
+    cardsContainer.style.animation = 'none';
+    setTimeout(() => {
+        cardsContainer.style.animation = `scrollAnimation ${animationDuration} linear infinite`;
+    }, 0);
+});
