@@ -36,6 +36,12 @@ imageFilenames.forEach((filename) => {
     cardsContainer.appendChild(card);
 });
 
+// Set the width of each card dynamically based on the number of visible cards
+const cardWidth = (100 / imageFilenames.length) + '%';
+document.querySelectorAll('.card').forEach((card) => {
+    card.style.width = cardWidth;
+});
+
 // Function to handle touch events
 let touchStartX = 0;
 let touchEndX = 0;
@@ -56,37 +62,36 @@ function handleSwipe() {
 
     if (deltaX > swipeThreshold) {
         // Swipe right (move to previous set of cards)
-        moveCards(-1);
+        moveCards(1);
     } else if (deltaX < -swipeThreshold) {
         // Swipe left (move to next set of cards)
-        moveCards(1);
+        moveCards(-1);
     }
 }
 
 // Function to move the cards container
 function moveCards(direction) {
-    const cardWidth = document.querySelector('.card').offsetWidth + 20; // Width + gap
     const currentTransform = getComputedStyle(cardsContainer).transform;
     const currentTranslateX = currentTransform !== 'none'
         ? parseInt(currentTransform.split(',')[4].trim())
         : 0;
 
-    const newTranslateX = currentTranslateX + direction * cardWidth;
+    const newTranslateX = currentTranslateX + direction * 100;
 
     // Check if it's the first or last set of cards to create the loop effect
-    if (direction === 1 && newTranslateX <= -cardWidth * imageFilenames.length) {
+    if (direction === 1 && newTranslateX > 0) {
+        cardsContainer.style.transition = 'none';
+        cardsContainer.style.transform = `translateX(${-imageFilenames.length * 100}%)`;
+        setTimeout(() => {
+            cardsContainer.style.transition = 'transform 0.5s ease';
+        }, 0);
+    } else if (direction === -1 && newTranslateX < -imageFilenames.length * 100) {
         cardsContainer.style.transition = 'none';
         cardsContainer.style.transform = 'translateX(0)';
         setTimeout(() => {
             cardsContainer.style.transition = 'transform 0.5s ease';
         }, 0);
-    } else if (direction === -1 && newTranslateX >= 0) {
-        cardsContainer.style.transition = 'none';
-        cardsContainer.style.transform = `translateX(${-cardWidth * (imageFilenames.length - 1)}px)`;
-        setTimeout(() => {
-            cardsContainer.style.transition = 'transform 0.5s ease';
-        }, 0);
     } else {
-        cardsContainer.style.transform = `translateX(${newTranslateX}px)`;
+        cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
     }
 }
