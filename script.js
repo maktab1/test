@@ -47,27 +47,18 @@ document.querySelectorAll('.card').forEach((card) => {
 let currentIndex = 0;
 
 // Function to move the cards container
-function moveCards() {
-    currentIndex = (currentIndex + 1) % imageFilenames.length;
+function moveCards(direction) {
+    currentIndex = (currentIndex + direction) % imageFilenames.length;
+    if (currentIndex < 0) {
+        currentIndex = imageFilenames.length - 1;
+    }
     const newTranslateX = -currentIndex * 100;
     cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
-
-    // Use setTimeout for a controlled animation speed
-    setTimeout(moveCards, 3000); // Adjust the delay as needed (in milliseconds)
 }
 
 // Call the moveCards function to initiate the animation
-moveCards();
+setInterval(() => moveCards(1), 5000); // Auto-scroll every 5 seconds
 
 // Event listeners for manual navigation buttons
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + imageFilenames.length) % imageFilenames.length;
-    const newTranslateX = -currentIndex * 100;
-    cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
-});
-
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % imageFilenames.length;
-    const newTranslateX = -currentIndex * 100;
-    cardsContainer.style.transform = `translateX(${newTranslateX}%)`;
-});
+prevButton.addEventListener('click', () => moveCards(-1));
+nextButton.addEventListener('click', () => moveCards(1));
