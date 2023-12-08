@@ -1,151 +1,120 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>AL-MASNOON</title>
-	<style>
-		body {
-			background-color: #f1f1f1;
-			font-family: Arial, sans-serif;
-		}
-		h1 {
-			font-size: 48px;
-			color: #333;
-			text-align: center;
-			margin-top: 50px;
-			margin-bottom: 20px;
-		}
-		h2 {
-			font-size: 36px;
-			color: #666;
-			text-align: center;
-			margin-top: 20px;
-			margin-bottom: 50px;
-		}
-		.container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			margin: 20px;
-		}
-		.container img {
-			margin: 10px;
-			border: 5px solid #fff;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-			border-radius: 5px;
-			transition: transform 0.2s ease-in-out;
-		}
-		.container img:hover {
-			transform: scale(1.1);
-		}
-		.modal {
-			display: none;
-			position: fixed;
-			z-index: 1;
-			padding-top: 100px;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: rgba(0, 0, 0, 0.9);
-		}
-		.modal-content {
-			margin: auto;
-			display: block;
-			width: 80%;
-			max-width: 700px;
-		}
-		.modal-content img {
-			width: 100%;
-			height: auto;
-		}
-		.close {
-			position: absolute;
-			top: 15px;
-			right: 35px;
-			color: #f1f1f1;
-			font-size: 40px;
-			font-weight: bold;
-			transition: 0.3s;
-		}
-		.close:hover,
-		.close:focus {
-			color: #bbb;
-			text-decoration: none;
-			cursor: pointer;
-		}
-		@media screen and (max-width: 700px) {
-			.container {
-				flex-direction: column;
-			}
-		}
-	</style>
+Last login: Tue Dec  5 21:26:18 on console
+. ./.bash_profile
+shakil@shakils-MacBook-Pro ~ % . ./.bash_profile
+shakil@shakils-MacBook-Pro ~ % ls -lrt
+total 32
+drwxr-xr-x+   5 shakil  staff   160 Oct  9  2022 Public
+drwx------+   4 shakil  staff   128 Oct  9  2022 Music
+drwx------    3 shakil  staff    96 Feb 24  2023 VirtualBox VMs
+drwx------@   3 shakil  staff    96 Apr  3  2023 Applications
+drwx------+   7 shakil  staff   224 Apr 25  2023 Pictures
+drwx------   12 shakil  staff   384 Jul 10 10:59 Movies
+drwx------+  14 shakil  staff   448 Nov  5 17:58 Documents
+drwx------@  89 shakil  staff  2848 Nov  8 15:10 Library
+-rw-r--r--    1 shakil  staff  2428 Nov 28 15:28 index.html
+-rw-r--r--@   1 shakil  staff  1276 Nov 28 17:41 test.html
+-rw-r--r--    1 shakil  staff  4801 Nov 28 19:31 test
+drwxr-xr-x    3 shakil  staff    96 Dec  1 23:11 github_webpages
+drwx------+  33 shakil  staff  1056 Dec  8 08:18 Downloads
+drwx------+ 168 shakil  staff  5376 Dec  8 08:25 Desktop
+shakil@shakils-MacBook-Pro ~ % cd github_webpages 
+shakil@shakils-MacBook-Pro github_webpages % ls -lrt
+total 0
+drwxr-xr-x  8 shakil  staff  256 Dec  1 23:13 test
+shakil@shakils-MacBook-Pro github_webpages % less test 
+test is a directory
+shakil@shakils-MacBook-Pro github_webpages % cd test 
+shakil@shakils-MacBook-Pro test % ls -lrt
+total 16
+-rw-r--r--  1 shakil  staff   17 Dec  1 23:11 README.md
+drwxr-xr-x  2 shakil  staff   64 Dec  1 23:12 images
+-rw-r--r--  1 shakil  staff  420 Dec  1 23:13 index.html
+drwxr-xr-x  3 shakil  staff   96 Dec  1 23:14 CSS
+drwxr-xr-x  3 shakil  staff   96 Dec  1 23:15 JS
+shakil@shakils-MacBook-Pro test % cd    
+shakil@shakils-MacBook-Pro ~ % ls -lrt
+total 32
+drwxr-xr-x+   5 shakil  staff   160 Oct  9  2022 Public
+drwx------+   4 shakil  staff   128 Oct  9  2022 Music
+drwx------    3 shakil  staff    96 Feb 24  2023 VirtualBox VMs
+drwx------@   3 shakil  staff    96 Apr  3  2023 Applications
+drwx------+   7 shakil  staff   224 Apr 25  2023 Pictures
+drwx------   12 shakil  staff   384 Jul 10 10:59 Movies
+drwx------+  14 shakil  staff   448 Nov  5 17:58 Documents
+drwx------@  89 shakil  staff  2848 Nov  8 15:10 Library
+-rw-r--r--    1 shakil  staff  2428 Nov 28 15:28 index.html
+-rw-r--r--@   1 shakil  staff  1276 Nov 28 17:41 test.html
+-rw-r--r--    1 shakil  staff  4801 Nov 28 19:31 test
+drwxr-xr-x    3 shakil  staff    96 Dec  1 23:11 github_webpages
+drwx------+  33 shakil  staff  1056 Dec  8 08:18 Downloads
+drwx------+ 168 shakil  staff  5376 Dec  8 08:25 Desktop
+shakil@shakils-MacBook-Pro ~ % less test
+shakil@shakils-MacBook-Pro ~ % less test.html 
+shakil@shakils-MacBook-Pro ~ % vi testt
+shakil@shakils-MacBook-Pro ~ % cd github_webpages 
+shakil@shakils-MacBook-Pro github_webpages % cd test 
+shakil@shakils-MacBook-Pro test % ls -lrt
+total 16
+-rw-r--r--  1 shakil  staff   17 Dec  1 23:11 README.md
+drwxr-xr-x  2 shakil  staff   64 Dec  1 23:12 images
+-rw-r--r--  1 shakil  staff  420 Dec  1 23:13 index.html
+drwxr-xr-x  3 shakil  staff   96 Dec  1 23:14 CSS
+drwxr-xr-x  3 shakil  staff   96 Dec  1 23:15 JS
+shakil@shakils-MacBook-Pro test % vi index.html 
+shakil@shakils-MacBook-Pro test % less index.html 
+
+                }
+                @media screen and (max-width: 700px) {
+                        .container {
+                                flex-direction: column;
+                        }
+                }
+        </style>
 </head>
 <body>
-	<h1>AL-MASNOON</h1>
-	<h2>SALES CORPORATION</h2>
+        <h1>AL-MASNOON</h1>
+        <h2>SALES CORPORATION</h2>
 
-	<div class="container">
-		<?php
-		$dir = ".";
-		$allowed_types = array('jpg', 'jpeg', 'png', 'gif');
-		$file_parts = array();
-		$ext = '';
-		$title = '';
-		$i = 0;
-		if ($handle = opendir($dir)) {
-			while (false !== ($entry = readdir($handle))) {
-				if ($entry != "." && $entry != "..") {
-					$file_parts = explode('.', $entry);
-					$ext = strtolower(array_pop($file_parts));
-					$title = implode('.', $file_parts);
-					$title = htmlspecialchars($title);
-					if (in_array($ext, $allowed_types)) {
-						if (($i + 1) % 4 == 0) {
-							$nomargin = 'nomargin';
-						} else {
-							$nomargin = '';
-						}
-						echo '<div class="img_block '.$nomargin.'">';
-						echo '<a href="'.$dir.'/'.$entry.'" target="_blank"><img src="'.$dir.'/'.$entry.'" alt="'.$title.'" /></a>';
-						echo '</div>';
-						$i++;
-					}
-				}
-			}
-			closedir($handle);
-		}
-		?>
-	</div>
+        <div class="container">
+<img src="2.png" alt="1">
+<img src="3.png" alt="1">
+<img src="4.png" alt="1">
+<img src="5.png" alt="1">
+<img src="6.png" alt="1">
+<img src="7.png" alt="1">
+<img src="2.jpeg" alt="1">
+<img src="3.jpeg" alt="1">
+<img src="4.jepg" alt="1">
+<img src="Maktab Icon.jpg" alt="1">
+        </div>
 
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
-		<span class="close">×</span>
-		<img class="modal-content" id="img01">
-	</div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+                <span class="close">×</span>
+                <img class="modal-content" id="img01">
+        </div>
 
-	<script>
-		// Get the modal
-		var modal = document.getElementById("myModal");
+        <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
 
-		// Get the image and insert it inside the modal - use its "alt" text as a caption
-		var images = document.getElementsByTagName("img");
-		var modalImg = document.getElementById("img01");
-		for (var i = 0; i < images.length; i++) {
-			images[i].onclick = function() {
-				modal.style.display = "block";
-				modalImg.src = this.src;
-			}
-		}
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var images = document.getElementsByTagName("img");
+                var modalImg = document.getElementById("img01");
+                for (var i = 0; i < images.length; i++) {
+                        images[i].onclick = function() {
+                                modal.style.display = "block";
+                                modalImg.src = this.src;
+                        }
+                }
 
-		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
 
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function() {
-			modal.style.display = "none";
-		}
-	</script>
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                        modal.style.display = "none";
+                }
+        </script>
 </body>
 </html>
