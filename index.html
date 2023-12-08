@@ -87,22 +87,36 @@
 	<h2>SALES CORPORATION</h2>
 
 	<div class="container">
-		<script>
-			var dir = ".";
-			var filelist = [];
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", dir, false);
-			xmlhttp.send();
-			var files = xmlhttp.responseText.split("\n");
-			for (var i = 0; i < files.length; i++) {
-				if (files[i].match(/\.(jpe?g|png|gif)$/)) {
-					filelist.push(files[i]);
+		<?php
+		$dir = ".";
+		$allowed_types = array('jpg', 'jpeg', 'png', 'gif');
+		$file_parts = array();
+		$ext = '';
+		$title = '';
+		$i = 0;
+		if ($handle = opendir($dir)) {
+			while (false !== ($entry = readdir($handle))) {
+				if ($entry != "." && $entry != "..") {
+					$file_parts = explode('.', $entry);
+					$ext = strtolower(array_pop($file_parts));
+					$title = implode('.', $file_parts);
+					$title = htmlspecialchars($title);
+					if (in_array($ext, $allowed_types)) {
+						if (($i + 1) % 4 == 0) {
+							$nomargin = 'nomargin';
+						} else {
+							$nomargin = '';
+						}
+						echo '<div class="img_block '.$nomargin.'">';
+						echo '<a href="'.$dir.'/'.$entry.'" target="_blank"><img src="'.$dir.'/'.$entry.'" alt="'.$title.'" /></a>';
+						echo '</div>';
+						$i++;
+					}
 				}
 			}
-			for (var i = 0; i < filelist.length; i++) {
-				document.write('<img src="' + filelist[i] + '" alt="Image ' + (i + 1) + '">');
-			}
-		</script>
+			closedir($handle);
+		}
+		?>
 	</div>
 
 	<!-- The Modal -->
