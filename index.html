@@ -1,21 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>AL-MASNOON Sales Corporation</title>
+	<title>Image Gallery</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin: 20px;
+		}
+		.container img {
+			margin: 10px;
+			border: 5px solid #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			border-radius: 5px;
+			transition: transform 0.2s ease-in-out;
+		}
+		.container img:hover {
+			transform: scale(1.1);
+		}
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding-top: 100px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.9);
+		}
+		.modal-content {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 700px;
+		}
+		.modal-content img {
+			width: 100%;
+			height: auto;
+		}
+		.close {
+			position: absolute;
+			top: 15px;
+			right: 35px;
+			color: #f1f1f1;
+			font-size: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+		}
+		.close:hover,
+		.close:focus {
+			color: #bbb;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		@media screen and (max-width: 700px) {
+			.container {
+				flex-direction: column;
+			}
+		}
+	</style>
 </head>
 <body>
-    <header>
-        <h1>AL-MASNOON</h1>
-        <p>SALES CORPORATION</p>
-    </header>
-    <div id="cardsContainer" class="cards-container">
-        <!-- Your animated card content here -->
-    </div>
-    <button id="prevButton" class="nav-button">Previous</button>
-    <button id="nextButton" class="nav-button">Next</button>
-    <script src="script.js"></script>
+	<div class="container">
+<img src="2.png" alt="1">
+<img src="3.png" alt="1">
+<img src="4.png" alt="1">
+<img src="5.png" alt="1">
+<img src="6.png" alt="1">
+<img src="7.png" alt="1">
+<img src="2.jpeg" alt="1">
+<img src="3.jpeg" alt="1">
+<img src="4.jepg" alt="1">
+<img src="Maktab Icon.jpg" alt="1">
+	</div>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<span class="close">×</span>
+		<img class="modal-content" id="img01">
+	</div>
+
+	<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the image and insert it inside the modal - use its "alt" text as a caption
+		var images = document.getElementsByTagName("img");
+		var modalImg = document.getElementById("img01");
+		for (var i = 0; i < images.length; i++) {
+			images[i].onclick = function() {
+				modal.style.display = "block";
+				modalImg.src = this.src;
+			}
+		}
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+	</script>
 </body>
 </html>
